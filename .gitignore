@@ -3,3 +3,4 @@ webpack.config.js
 plan.md
 .eslintrc.js
 yarn.lock
+dist/css/variables.min.css
