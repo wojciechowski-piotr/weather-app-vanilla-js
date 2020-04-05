@@ -1,7 +1,11 @@
+import { format } from 'date-fns';
+
 let params = (new URL(document.location)).searchParams;
 let city = params.get('city');
 let cityName;
-cityName = city;
+
+city === null ? cityName = 'london' : cityName = city;
+
 const apiKey = '774384fa58572680f7bc37ab01913d7d';
 const apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
 
@@ -34,8 +38,9 @@ fetch(apiCall)
     .catch((error) => {
         console.error('Error:', error);
     });
-    
-    const currentDate = new Date();
+
+    const currentDate = format(new Date(), 'dd-MMM-yyyy, HH:mm (cccc)');
     const timeCnt = document.querySelector('.weather__time');
 
-    timeCnt.innerHTML = `${currentDate.getDate()}-${currentDate.getMonth()+1}-${currentDate.getFullYear()}, ${currentDate.getHours()}:${currentDate.getMinutes()}`;
+/*     timeCnt.innerHTML = `${currentDate.getDate()}-${currentDate.getMonth()+1}-${currentDate.getFullYear()}, ${currentDate.getHours()}:${currentDate.getMinutes()}`; */
+    timeCnt.innerHTML = `${currentDate}`;
