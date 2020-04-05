@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="./dist/css/style.min.css">
-</head>
-<body>
-    <div id="app">
-        <div class="header">
-            <h1>Weather App</h1>
-            <p class="subtitle">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores, veniam?</p>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather App</title>
+        <link rel="stylesheet" href="./dist/css/style.min.css" />
+    </head>
+    <body>
+        <div id="app">
+            <div class="header">
+                <div class="header__hero">
+                    <h1>Weather app</h1>
+                </div>
+                <form>
+                    <input type="text" name="city" id="city-name" placeholder="Enter City name" />
+                    <!-- <label for="city-name">CITY</label> -->
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="weather">
+                <div class="weather__time"></div>
+                <div class="weather__city"></div>
+                <div class="weather__icon"></div>
+                <div class="weather__temp"></div>
+                <div class="weather__desc"></div>
+            </div>
+            <div class="error"></div>
         </div>
-        <form>
-            <label for="city-name">City:</label>
-            <input type="text" name="city" id="city-name" placeholder="Enter City name">
-        </form>
-    </div>
 
-    <script src="./dist/js/main.js"></script>
-</body>
+        <script src="./dist/js/main.js"></script>
+    </body>
 </html>

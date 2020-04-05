@@ -1,7 +1,7 @@
-console.log("Weather App");
-
+let params = (new URL(document.location)).searchParams;
+let city = params.get('city');
 let cityName;
-cityName = 'Legnica';
+cityName = city;
 const apiKey = '774384fa58572680f7bc37ab01913d7d';
 const apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
 
@@ -16,12 +16,26 @@ fetch(apiCall)
         return response.json();
     })
     .then((data) => {
-        console.log(`City: ${data.name} (${data.sys.country})`);
-        console.log(`Temp: ${Math.round(data.main.temp, 0)} C`);
+
+        const cityCnt = document.querySelector('.weather__city');
+        const iconCnt = document.querySelector('.weather__icon');
+        const icon = new Image();
+        const tempCnt = document.querySelector('.weather__temp');
+        const descCnt = document.querySelector('.weather__desc');
+        
+        cityCnt.innerHTML = `<h3>${data.name}, ${data.sys.country}</h3>`;
+        tempCnt.innerHTML = `<p>${Math.round(data.main.temp, 0)}&#176;C</p>`;
         data.weather.forEach(el => {
-            console.log(`Weather: ${el.main}`);
+            icon.src = `http://openweathermap.org/img/wn/${el.icon}@2x.png`;
+            iconCnt.appendChild(icon);
+            descCnt.innerHTML = `<p>${el.description}</p>`;
         });
     })
     .catch((error) => {
         console.error('Error:', error);
-    });    
+    });
+    
+    const currentDate = new Date();
+    const timeCnt = document.querySelector('.weather__time');
+
+    timeCnt.innerHTML = `${currentDate.getDate()}-${currentDate.getMonth()+1}-${currentDate.getFullYear()}, ${currentDate.getHours()}:${currentDate.getMinutes()}`;
