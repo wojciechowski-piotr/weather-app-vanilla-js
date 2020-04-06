@@ -30,7 +30,7 @@ fetch(apiCall)
         cityCnt.innerHTML = `<h3>${data.name}, ${data.sys.country}</h3>`;
         tempCnt.innerHTML = `<p>${Math.round(data.main.temp, 0)}&#176;C</p>`;
         data.weather.forEach(el => {
-            icon.src = `http://openweathermap.org/img/wn/${el.icon}@2x.png`;
+            icon.src = `https://openweathermap.org/img/wn/${el.icon}@2x.png`;
             iconCnt.appendChild(icon);
             descCnt.innerHTML = `<p>${el.description}</p>`;
         });
