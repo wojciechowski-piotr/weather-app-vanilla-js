@@ -75,31 +75,23 @@ form {
     padding: 1rem;
     &__time {
         grid-area: time;
-        /* grid-column: 1 / 3;
-        grid-row: 1 / 2; */
+        margin-bottom: 1rem;
         font-size: 0.9rem;
         font-weight: 300;
     }
     &__city {
         grid-area: city;
-        /* grid-column: 2 / 3;
-        grid-row: 2 / 3; */
         font-weight: 300;
     }
     &__icon {
         grid-area: icon;
-        /* grid-column: 1 / 2;
-        grid-row: 2 / 5; */
     }
     &__temp {
         grid-area: temp;
-        /* grid-row: 3 / 4; */
         font-size: 2rem;
     }
     &__desc {
         grid-area: desc;
-        /* grid-column: 2 / 3;
-        grid-row: 4 / 5; */
         font-weight: 300;
     }
 }
